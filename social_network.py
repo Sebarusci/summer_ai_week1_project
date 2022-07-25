@@ -39,36 +39,37 @@ if __name__ == "__main__":
                 print("")
                 print("Cant access functions. Account not yet created.")
             elif account != None:
+                #Account Info
+                print("")
+                print("Username:", account.username)
+                print("Password:", account.password)
+                #Handle inner menu here
+                inner_menu_choice = social_network_ui.manageAccountMenu()
                 while True:
-                    #Account Info
-                    print("")
-                    print("Username:", account.username)
-                    print("Password:", account.password)
-                    #Handle inner menu here
-                    inner_menu_choice = social_network_ui.manageAccountMenu()
                     # Edits user account
                     if inner_menu_choice == "1":
                         choice_2 = social_network_ui.editDetail()
-                        if choice_2 == "1":
-                            account.edit_user()
-                        elif choice_2 == "2":
-                            account.edit_pwd()
-                        elif choice_2 == "3":
-                            inner_menu_choice = social_network_ui.manageAccountMenu()
-                        else:
-                            print("Your input is invalid. Try Again!")
+                        while True:
+                            if choice_2 == "1":
+                                account.edit_user()
+                            elif choice_2 == "2":
+                                account.edit_pwd()
+                            elif choice_2 == "3":
+                                break
+                            else:
+                                print("Your input is invalid. Try Again!")
+                            # Restarts edit detail menu.
                             choice_2 = social_network_ui.editDetail()
                     #Add a friend option
                     elif inner_menu_choice == "2":
                         print("")
                         a = input("Friend's username: ")
-                        account.add_friend(a)
                         if a in account.friendlist:
                             print("Friend already added.")
                         else:
+                            account.add_friend(a)
                             print("Friend added!")
                             ai_social_network.list_of_people.append(a)
-                        inner_menu_choice = social_network_ui.manageAccountMenu()
                     # View friend list
                     elif inner_menu_choice == "3":
                         while True:
@@ -88,10 +89,9 @@ if __name__ == "__main__":
                         blocked = input("Which friend would you like to block: ")
                         if blocked in account.friendlist:
                             account.block_friend(blocked)
-                            print("Friend blocked. You will no longer be able to receive or send messages from this person.")
+                            print("Friend blocked. You will no longer be able to receive or send messages to this person.")
                         else:
                             print("Friend doesn't exist.")
-                        inner_menu_choice = social_network_ui.manageAccountMenu()
                     # View blocked friends
                     elif inner_menu_choice == "5":
                         while True:
@@ -108,11 +108,12 @@ if __name__ == "__main__":
                         print("")
                         account.blocked_list()
                         Unblock = input("Which friend would you like to unblock: ")
-                        account.unblock(Unblock)
                         if Unblock not in account.block_list:
                             print("Blocked friend not found")
                         else:
                             ai_social_network.list_of_people.append(blocked)
+                            account.unblock(Unblock)
+                            print("Friend unblocked!")
                     # Send message
                     elif inner_menu_choice == "7":
                         print(account.friendlist)
@@ -123,17 +124,25 @@ if __name__ == "__main__":
                             msg = input("Type your message: ")
                             account.send_message(msg, receiver)
                         else:
-                            print("You can only message your friends.")
+                            print("Friend not added/Doesn't exist/Is blocked.")
+                    # View messages
+                    elif inner_menu_choice == "8":
+                        print("")
+                        print("Message list: ")
+                        account.view_message()
                     # Get out of manage account menu
                     elif inner_menu_choice == "9":
                         #choice = social_network_ui.mainMenu()
                         break
                     else:
-                        print("Your input is invalid. Try Again!")          
-            #restart menu
-            choice = social_network_ui.mainMenu()
-
-
+                        print("Your input is invalid. Try Again!")  
+                    
+                    #Restarts manage account menu
+                    print("")
+                    print("Username:", account.username)
+                    print("Password:", account.password)
+                    inner_menu_choice = social_network_ui.manageAccountMenu() 
+                
         elif choice == "3":
             print("Thank you for visiting. Goodbye!")
             break
@@ -143,8 +152,3 @@ if __name__ == "__main__":
         
         #restart menu
         choice = social_network_ui.mainMenu()
-
-
-
-
-        

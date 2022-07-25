@@ -44,6 +44,7 @@ class Person():
         self.person_object = None
         self.blocked_object = None
         self.block_list = []
+        self.user_messages = []
         
     def edit_user(self):
         print("")
@@ -94,5 +95,9 @@ class Person():
         print("")
         print(message)
         print("")
-        print("")
+        msg_1 = "From: You | To: "+ str(person) + "| message:" + str(message)
+        self.user_messages.append(msg_1)
         print("message sent!")
+
+    def view_message(self):
+        print(self.user_messages)
