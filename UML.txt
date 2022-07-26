@@ -1,0 +1,31 @@
+-----------------------
+|   SocialNetwork     |
+|----------------------
+|   self.user = str   |
+|   self.pwd  = str   |
+|----------------------
+|   create_account()  |
+-----------------------
+# The Person object will be related to the SocialNetwork class, creating an instance of it using the values of self.user & self.pwd
+# That way we can manipulate the account with the Person class and store the database of people in the SocialNetwork
+--------------------------------
+|           Person              |
+|--------------------------------
+|   self.username = str         |
+|   self.password = str         |
+|   self.friendlist = list      |
+|   self.person_object = None   |
+|   self.blocked_object = None  |
+|   self.block_list = list      |
+|   self.user_messages = list   |
+--------------------------------
+|   edit_user()                 |
+|   edit_pwd()                  |
+|   add_friend()                |
+|   view_friend()               |
+|   block_friend()              |
+|   blocked_list()              |
+|   unblock()                   |
+|   send_message()              |
+|   view_message()              |
+--------------------------------

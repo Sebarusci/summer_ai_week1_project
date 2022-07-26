@@ -1,0 +1,51 @@
+Pseudocode:
+
+1. Create instance of socialNetwork class
+2 Create variable account with value None
+3 If run on main continue.
+4. Load the social menu.
+5. if the choice is 1 -> go to step 6. if the choice is 2 -> go to step 9. if the choice is 3 -> end program.
+6. load create account menu
+7. If name of account already exist, go back to 5, else go to 6.
+8. Create username and password and store in both classes. 
+9. If account = None, return to main menu so user creates account. (step 6) else go to step 10.
+10. Load manage account menu
+11. if choice in manage account menu = 1 -> go to step 12. else if 2 -> (step 22). else if 3 _> (step 25) . else if 4 ->(step 29) . else if 5 -> (step 34) . else if 6 -> (step 38) . else if 7 -> (step 44) . else if 8 -> (step 49) . else if 9 -> (step 50) 
+12. load edit account menu
+13. if choice is 1 -> step 14. else if 2 -> 18. else if 3 -> (step 10)
+14. load function edit account user
+15. display old username
+16. ask input of new username
+17. delete old username from ai_social_network_list and Person class and replace with new. go back to (step 12)
+18. load function edit account pwd
+19. display old password
+20. ask input of new password
+21. delete old password from Person class and replace with new. go back to (step 12)
+22. ask for friend name
+23. check if friend already in friendlist from ai_social_network_list, if it is (step 22) if not continue.
+24. add friend name to friendlist from ai_social_network class and friendlist from Person class. go back to (step 10)
+25. display the friendlist stored in Person class. 
+26. ask user if he wants to go back (y/n)
+27. if answer  = y -> (step 10)
+28. if answer = n -> (step 25)
+29. display account friendlist
+30. ask user to type name of friend to block
+31. check if friend in FriendList.
+32. If not, tell user to add friend first. Go back to (step 10)
+33. If user in Friendlist. Remove user from friendlist in Person and ai_social_network class and append into new blocked list. Go back to step 10
+34. Display user blocked list from Person class.
+35. ask user if he wants to go back (y/n)
+36. if answer  = y -> (step 10)
+37. if answer = n -> (step 34)
+38. display blocked list
+40. ask user to type which account to unblock
+41. If account in blocked list -> (step 42). Else go to (step 43)
+42. Remove from blocked list and append to FriendList in both classes. Go back to step (10)
+43. tell input user doesn't exist, is not your friend or isn't blocked. Go back to step (10)
+44. display account friendlist
+45. ask user to input name of who would she/he like to message
+46. if user in friend list -> (step 48). Else -> (step )
+47. ask user for what he/she would like to message and append into user_messages list. go back to step (10)
+48. Tell account that that user doesn't exist, is not your friend or is blocked. go back to step (10)
+49.  display user_messages list. go back to step(10)
+50. load the social menu (step 4)
